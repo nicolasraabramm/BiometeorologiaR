@@ -1,3 +1,4 @@
+#comando para borrar todas las variables en "Environment"
 rm(list = ls())
 
 T_ave = 10 #[C]
