@@ -15,13 +15,15 @@ K_s = 0.4     #[W m^-1 K^-1 conductancia del suelo]
 C_s = 1.1     #[MJ m^-3 K^-1 Capacidad Termica del suelo]
 k = K_s/(rho_s*C_s)
 
-D = sqrt(2*k/w)
-
 #declaramos w que nos da el periodo de la funcion
 w = 2*pi/(24)
 
+D = sqrt(2*k/w)
 
-hours = seq(from= 0, to =5, by = 1) #[h] horas (generarmos un vector de horas que vayan de 0 a 24)
+
+
+
+hours = seq(from= 0, to =24, by = 1) #[h] horas (generarmos un vector de horas que vayan de 0 a 24)
 depth = seq(from = 0, to = 5, by = 0.1) # [m] profundidad (generamos un vector de profundidad de 0 a 3 m con intervalos de 0.1 m)
 
 
