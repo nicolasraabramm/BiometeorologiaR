@@ -106,7 +106,7 @@ k_be <- function(x,psi){ #x y psi son los argumentos de la funcion
       intercepted[i,j] <- 1-canopy_trans(psi = Zenith_angle[j], x_value[i], LAI[i])
       
       if (i == 1){
-        rad_intercepted[i,j] <- Io[j]*intercepted[1,j]
+        rad_intercepted[i,j] <- Io[j]*intercepted[i,j]
         rad_transmited[i,j] <- Io[j]-rad_intercepted[i,j]
         
       } else{
