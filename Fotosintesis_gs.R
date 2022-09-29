@@ -102,7 +102,7 @@ Oak_Fitting$pars
 Photo_Oak <- read.csv("/Users/nicolasraab/Desktop/Biometeorologia/BiometeorologiaR/Fotosintesis_Conductancia_Oak.csv", header = TRUE)
 
 #Determinamos las constantes para el modelode de Leuning Ball and Berry
-Tau = 25
+Tau = 100
 Leuning_factor <- Photo_Oak$Photo/((Photo_Oak$CO2R-Tau)*(1+Photo_Oak$VpdL/5))
 
 plot(x= Leuning_factor, y = Photo_Oak$Cond) #Grafiquemos Conductancia 
@@ -120,7 +120,7 @@ Photo_Modelled <- Photosyn(
     Patm = Photo_Oak$Press,
     RH = NULL,
     gsmodel = "BBLeuning",
-    g1 = 5.74,
+    g1 = 100,
     g0 = 0.07404,
     gk = NULL,
     vpdmin = 1.5,
@@ -147,7 +147,7 @@ Photo_Modelled <- Photosyn(
     delsJ = 631.88,
     GammaStar = NULL,
     Km = NULL,
-    Ci = Photo_Oak$Ci,
+    Ci = NULL,
     Tcorrect = TRUE,
     returnParsOnly = FALSE,
     whichA = c("Ac")
