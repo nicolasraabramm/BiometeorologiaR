@@ -19,21 +19,21 @@ plot(parana)
 
 #hint = la distancia maxima del variograma es la mitad de la distancia maxima entre los puntos
 #mas lejanos
-plot(variog(parana, option = "cloud", max.dist = 309.75))
+plot(variog(parana, option = "cloud", max.dist = 309))
 
 
 
 #Tenemos que agrupar nuestras varianzas en secciones o "bins"
-vario_manual <- variog(parana, trend = "cte",
+vario_manual <- variog(parana, trend = "2nd",
                        max.dist=309.75,
-                       uvec=seq(0.0,309.75,length.out = 10)) 
+                       uvec=seq(0.0,309,length.out = 10)) 
 
 
 plot(vario_manual)
 
 #Comparamos con una regresion lineal para el valor esperado mu
-plot(variog(parana, trend = "1st", max.dist = 309.75, 
-            uvec=seq(0.0,309.75,length.out = 10)))
+plot(variog(parana, trend = "cte", max.dist = 309.75, 
+            uvec=seq(0.1,309.75,length.out = 10)))
 
 #Comparamos con una regresion cuadratica para el valor esperado mu
 plot(variog(parana, trend = "2nd", max.dist = 309.75, 
@@ -88,7 +88,7 @@ plot(prediction_grid)
 
 #APLICAMOS EL MODELO SELECCIONADO
 krig_rain <- krige.conv(parana, loc=prediction_grid,
-                        krige=krige.control(obj.model=exp_fit_nofix))
+                        krige=krige.control(obj.model=sph_fit_nofix))
 
 #Graficamos nuestros datos de la prediccion
 image(krig_rain,col=heat.colors(100))
