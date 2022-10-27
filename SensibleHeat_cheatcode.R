@@ -2,7 +2,7 @@ rm(list = ls())
 
 #Constantes
 rho = 1.2   #[kg m^-3] Densidad del aire a 20 C y nivel del mar
-Cp = 1.012  #[1.012 J kg^-1 K^-1] Calor especifico del aire a 20 C
+Cp = 1.012  #[1.012 J g^-1 K^-1] Calor especifico del aire a 20 C
 
 
 
